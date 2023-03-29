@@ -1,0 +1,7 @@
+---
+plugin: aws_ec2
+regions: ap-south-1
+filters:
+  tag:user: ansible
+hostnames:
+  - private-ip-address
