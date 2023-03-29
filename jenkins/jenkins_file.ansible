@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'TagKey', choices: ["Environment"], description: 'Choose tag')
-        choice(name: 'TagValue', choices: ["Dev"], description: 'Choose tag')
+        choice(name: 'TagKey', choices: ["user"], description: 'Choose tag')
+        choice(name: 'TagValue', choices: ["ansible"], description: 'Choose tag')
     }
     stages {
         stage('Ansible-Playbook Execution') {
