@@ -1,6 +1,5 @@
 ---
 - name: Ansible Demo
-  hosts: "{{ host_group }}"
   become: true
 
   tasks:
