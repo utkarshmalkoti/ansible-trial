@@ -5,7 +5,7 @@
 
   tasks:
     - name: Install nginx latest version
-      apt:
+      yum:
         name: nginx
         state: latest
 
