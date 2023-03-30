@@ -4,14 +4,16 @@
   become: true
 
   tasks:
-    - name: install EPEL repo
-      yum: name=epel-release state=present
-    - name: Install nginx latest version
-      yum:
-        name: nginx
-        state: latest
+    - name: "Uncomment ModLoad imudp"
+      command: "sudo sed '/$ModLoad imudp/s/^#//' -i /etc/rsyslog.conf"
 
-    - name: Start nginx
+    - name: "Uncomment UDPServerRun"
+      command: "sudo sed '/$UDPServerRun 514/s/^#//' -i /etc/rsyslog.conf"
+
+    - name: "Appending IP"
+      shell: "echo 'auth.*,authpriv.* @10.110.128.43'>> /etc/rsyslog.conf"
+  
+    - name: "restart rsyslog service"
       service:
-        name: nginx
-        state: started
+        name: rsyslog
+        state: restarted
