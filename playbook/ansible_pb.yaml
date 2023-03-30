@@ -1,6 +1,6 @@
 ---
 - name: Ansible Demo
-  host: all
+  hosts: all
   become: true
 
   tasks:
